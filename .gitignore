@@ -1,0 +1,25 @@
+# Godot import cache
+.godot/
+
+# Imported assets 
+.import/
+
+# Mono/C# 
+.mono/
+bin/
+obj/
+
+# Export presets with secrets (optional)
+export_presets.cfg
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files (optional)
+.vscode/
+.idea/
+*.swp
+
+# Music files 
+Materials/Audio/

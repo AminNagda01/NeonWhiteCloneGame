@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ddyxreosuxmf7"]
+
+[node name="PauseMenu" type="Control" unique_id=1480005400]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2117288442]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2967276, 0.49364394, 0.4979182, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=265435463]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer" unique_id=1211973224]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=727630793]
+layout_mode = 2
+text = "Resume"
+
+[node name="Level Select" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=780478452]
+layout_mode = 2
+text = "Level Select"
+
+[node name="Settings" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1099948549]
+layout_mode = 2
+text = "Settings"
+
+[node name="Main Menu" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=768201434]
+layout_mode = 2
+text = "Main Menu"

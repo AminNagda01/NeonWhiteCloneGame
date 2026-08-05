@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://drhcr5t3ag0dx"]
+
+[ext_resource type="Script" uid="uid://cw4qj8t480xat" path="res://Scripts/UI/Settings.cs" id="1_mj2lg"]
+
+[node name="Settings" type="Control" unique_id=213688225 node_paths=PackedStringArray("_fovSlider", "_sensitivitySlider", "_fovLabel", "_sensitivityLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mj2lg")
+_fovSlider = NodePath("ColorRect/CenterContainer/VBoxContainer/FovSlider")
+_sensitivitySlider = NodePath("ColorRect/CenterContainer/VBoxContainer/SensitivitySlider")
+_fovLabel = NodePath("ColorRect/CenterContainer/VBoxContainer/CurrentFov")
+_sensitivityLabel = NodePath("ColorRect/CenterContainer/VBoxContainer/CurrentSens")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=177407993]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.70393026, 0.94866556, 0.93454576, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=127586087]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer" unique_id=1894310440]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="FovTitle" type="Label" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=779685974]
+layout_mode = 2
+text = "Fov"
+
+[node name="FovSlider" type="HSlider" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=2080685389]
+layout_mode = 2
+min_value = 60.0
+max_value = 115.0
+value = 60.0
+
+[node name="CurrentFov" type="Label" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=126092435]
+layout_mode = 2
+
+[node name="Sensitivity" type="Label" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1188910613]
+layout_mode = 2
+
+[node name="SensitivitySlider" type="HSlider" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1292122127]
+layout_mode = 2
+min_value = 0.1
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="CurrentSens" type="Label" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=20559483]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=906138741]
+layout_mode = 2
+text = "................................................................."
+
+[node name="Defaults" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=477642048]
+layout_mode = 2
+text = "Restore Defaults"
+
+[node name="Button" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=27762281]
+layout_mode = 2
+text = "Back"
+
+[connection signal="drag_ended" from="ColorRect/CenterContainer/VBoxContainer/FovSlider" to="." method="OnFovChangeEnded"]
+[connection signal="value_changed" from="ColorRect/CenterContainer/VBoxContainer/FovSlider" to="." method="OnFovChange"]
+[connection signal="drag_ended" from="ColorRect/CenterContainer/VBoxContainer/SensitivitySlider" to="." method="OnSensitivityChangeEnded"]
+[connection signal="value_changed" from="ColorRect/CenterContainer/VBoxContainer/SensitivitySlider" to="." method="OnSensitivityChange"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/Defaults" to="." method="OnDefaultsPressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/Button" to="." method="OnBackButtonPressed"]

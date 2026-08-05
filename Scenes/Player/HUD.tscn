@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ul53p27waoco"]
+
+[ext_resource type="Script" uid="uid://ch37xu587fi5i" path="res://Scripts/Player/Hud.cs" id="1_2s5p1"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1547489750 node_paths=PackedStringArray("_timer")]
+script = ExtResource("1_2s5p1")
+_timer = NodePath("Control/Label")
+
+[node name="Control" type="Control" parent="." unique_id=619880202]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=1661919582]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "TEST TEXT TO SEE IF THIS WORKS "

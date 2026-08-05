@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://p11xnimgwhn0"]
+
+[ext_resource type="Script" uid="uid://2rcoth0841yq" path="res://Scripts/Gameplay/TestLevel101.cs" id="1_hfd3w"]
+[ext_resource type="PackedScene" uid="uid://0xis2is58yd1" path="res://Scenes/Player/Player.tscn" id="1_mmbfc"]
+
+[sub_resource type="Environment" id="Environment_d245l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0di11"]
+albedo_color = Color(0.4808644, 0.38098332, 0.4138251, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7n0eh"]
+material = SubResource("StandardMaterial3D_0di11")
+size = Vector3(24, 1, 34.054443)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d245l"]
+size = Vector3(24, 1, 34.034668)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfd3w"]
+albedo_color = Color(0, 0.7001133, 0.70133185, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7n0eh"]
+size = Vector3(5.04, 0.805, 4.5)
+
+[node name="TestLevel101" type="Node3D" unique_id=1583041062]
+script = ExtResource("1_hfd3w")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2068856]
+environment = SubResource("Environment_d245l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1425806192]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=605029535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1866194357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.027222)
+mesh = SubResource("BoxMesh_7n0eh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1629367594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.023388)
+shape = SubResource("BoxShape3D_d245l")
+
+[node name="Player" parent="." unique_id=526329511 instance=ExtResource("1_mmbfc")]
+
+[node name="Geometry" type="Node3D" parent="." unique_id=198970921]
+
+[node name="Platform_001" type="CSGBox3D" parent="Geometry" unique_id=726378546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -8)
+use_collision = true
+size = Vector3(4, 0.5, 4)
+
+[node name="Platform_002" type="CSGBox3D" parent="Geometry" unique_id=2021752552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.25, -14)
+use_collision = true
+size = Vector3(4, 0.5, 4)
+
+[node name="Platform_003" type="CSGBox3D" parent="Geometry" unique_id=1559362558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.25, -20)
+use_collision = true
+size = Vector3(5, 0.5, 4)
+
+[node name="Platform_004" type="CSGBox3D" parent="Geometry" unique_id=1938595745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, -28)
+use_collision = true
+size = Vector3(8, 0.5, 4)
+
+[node name="Ramp_001" type="CSGBox3D" parent="Geometry" unique_id=1293780636]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, -6, 0.2, -6)
+use_collision = true
+size = Vector3(5, 0.4, 8)
+
+[node name="Wall_001" type="CSGBox3D" parent="Geometry" unique_id=56613472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -14)
+use_collision = true
+size = Vector3(1, 4, 36)
+
+[node name="Wall_002" type="CSGBox3D" parent="Geometry" unique_id=553548436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, -14)
+use_collision = true
+size = Vector3(1, 4, 36)
+
+[node name="Goal" type="CSGBox3D" parent="Geometry" unique_id=1691767790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60002136, 2.25, -37.293247)
+use_collision = true
+size = Vector3(5, 0.5, 4)
+material = SubResource("StandardMaterial3D_hfd3w")
+
+[node name="GoalArea" type="Area3D" parent="Geometry/Goal" unique_id=853428880]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Goal/GoalArea" unique_id=1606186129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01782602, 0.13639307, -0.16773224)
+shape = SubResource("BoxShape3D_7n0eh")
+
+[connection signal="body_entered" from="Geometry/Goal/GoalArea" to="." method="WhenEndReached"]

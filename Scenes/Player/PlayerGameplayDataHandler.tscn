@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d31vscjfx6eev"]
+
+[ext_resource type="Script" uid="uid://dgsjohlv8b6n1" path="res://Scripts/Gameplay/PlayerGameplayDataHandler.cs" id="1_qf4q3"]
+
+[node name="PlayerGameplayDataHandler" type="Node" unique_id=733215865]
+script = ExtResource("1_qf4q3")
+playerGameplayDataFile = "res://Data/Live/GameplayData.json"

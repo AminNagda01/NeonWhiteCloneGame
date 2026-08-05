@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://0xis2is58yd1"]
+
+[ext_resource type="Script" uid="uid://bj644yg7ahd0q" path="res://Scripts/Player/Player.cs" id="1_s0eop"]
+[ext_resource type="PackedScene" uid="uid://ul53p27waoco" path="res://Scenes/Player/HUD.tscn" id="2_ft8w5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7n0eh"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=526329511 node_paths=PackedStringArray("CameraPivot", "PlayerCamera")]
+script = ExtResource("1_s0eop")
+CameraPivot = NodePath("CameraPivot")
+PlayerCamera = NodePath("CameraPivot/Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=277875652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_7n0eh")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=695710414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1021170572]
+current = true
+fov = 90.0
+
+[node name="CanvasLayer" parent="." unique_id=1547489750 instance=ExtResource("2_ft8w5")]
+follow_viewport_enabled = true

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dqhyilav77acv"]
+
+[ext_resource type="Script" uid="uid://ub8gsbgw3qwf" path="res://Scripts/Player/PlayerSettings.cs" id="1_gwbxm"]
+
+[node name="PlayerSettings" type="Node" unique_id=232993454]
+script = ExtResource("1_gwbxm")
+playerSettingsFile = "res://Data/Live/PlayerSettings.json"

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bx8wc0q6gt634"]
+
+[ext_resource type="Script" uid="uid://dxqfm0aqfi7ig" path="res://Scripts/UI/EndScreen.cs" id="1_ntrla"]
+
+[node name="EndScreen" type="Control" unique_id=206494400 node_paths=PackedStringArray("finalTime", "bestTime", "congrats")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ntrla")
+finalTime = NodePath("ColorRect/MarginContainer/CenterContainer/VBoxContainer/Last Time")
+bestTime = NodePath("ColorRect/MarginContainer/CenterContainer/VBoxContainer/Best Time")
+congrats = NodePath("ColorRect/MarginContainer/CenterContainer/VBoxContainer/CongratsText")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1969211140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8831684, 0.36774388, 0.17522797, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=1132626616]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/MarginContainer" unique_id=903882170]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/CenterContainer" unique_id=391430583]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="CongratsText" type="Label" parent="ColorRect/MarginContainer/CenterContainer/VBoxContainer" unique_id=1876190457]
+visible = false
+layout_mode = 2
+text = "NEW BEST TIME! Congrats! "
+
+[node name="TimeLable" type="Label" parent="ColorRect/MarginContainer/CenterContainer/VBoxContainer" unique_id=2073373980]
+layout_mode = 2
+text = "YOUR TIME "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Last Time" type="Label" parent="ColorRect/MarginContainer/CenterContainer/VBoxContainer" unique_id=727142320]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Best Time Label" type="Label" parent="ColorRect/MarginContainer/CenterContainer/VBoxContainer" unique_id=1092096055]
+layout_mode = 2
+text = "BEST TIME "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Best Time" type="Label" parent="ColorRect/MarginContainer/CenterContainer/VBoxContainer" unique_id=913475783]
+layout_mode = 2
+
+[node name="Menu" type="Button" parent="ColorRect/MarginContainer/CenterContainer/VBoxContainer" unique_id=797568727]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=427802224]
+
+[connection signal="pressed" from="ColorRect/MarginContainer/CenterContainer/VBoxContainer/Menu" to="." method="OnMainMenuPressed"]

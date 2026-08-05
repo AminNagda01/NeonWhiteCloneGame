@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bi1scfc3aam0x"]
+
+[ext_resource type="Script" uid="uid://cmokh5fynmj2s" path="res://Scripts/UI/AudioManager.cs" id="1_iyyep"]
+[ext_resource type="AudioStream" uid="uid://ccg2h0q355bo0" path="res://Materials/Audio/MUSIC STORY TITLE.mp3" id="2_snxin"]
+[ext_resource type="AudioStream" uid="uid://cp0elmtqne50f" path="res://Materials/Audio/MUSIC LEVEL ONE.mp3" id="3_ugv24"]
+[ext_resource type="AudioStream" uid="uid://c681tqgk2mwom" path="res://Materials/Audio/MUSIC JINGLE LEVELCOMPLETE NORMAL.mp3" id="4_63vxy"]
+[ext_resource type="AudioStream" uid="uid://rj6k1xgm0pfy" path="res://Materials/Audio/MUSIC JINGLE LEVELCOMPLETE GOLD.mp3" id="5_xu21o"]
+
+[node name="AudioManager" type="Node" unique_id=588379797]
+script = ExtResource("1_iyyep")
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="." unique_id=680541844]
+stream = ExtResource("2_snxin")
+parameters/looping = true
+
+[node name="LevelOneMusic" type="AudioStreamPlayer" parent="." unique_id=181663075]
+stream = ExtResource("3_ugv24")
+parameters/looping = true
+
+[node name="EndCardNormalMusic" type="AudioStreamPlayer" parent="." unique_id=1313751336]
+stream = ExtResource("4_63vxy")
+
+[node name="EndCardNewTimeMusic" type="AudioStreamPlayer" parent="." unique_id=1530929802]
+stream = ExtResource("5_xu21o")
