@@ -6,11 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://p11xnimgwhn0" path="res://Scenes/Levels/TestLevel101.tscn" id="4_8d3h1"]
 [ext_resource type="PackedScene" uid="uid://drhcr5t3ag0dx" path="res://Scenes/UI/Settings.tscn" id="5_r0xn5"]
 [ext_resource type="PackedScene" uid="uid://bx8wc0q6gt634" path="res://Scenes/UI/EndScreen.tscn" id="6_ryqf4"]
+[ext_resource type="PackedScene" uid="uid://ddyxreosuxmf7" path="res://Scenes/UI/PauseMenu.tscn" id="7_nx8iy"]
 
-[node name="SceneManager" type="Node" unique_id=1942426826]
+[node name="SceneManager" type="Node" unique_id=1942426826 node_paths=PackedStringArray("OverlayLayer")]
+process_mode = 3
 script = ExtResource("1_a1qx1")
 MainMenu = ExtResource("2_gjvt4")
 LevelSelect = ExtResource("3_8d3h1")
 LevelOne = ExtResource("4_8d3h1")
 Settings = ExtResource("5_r0xn5")
 EndScene = ExtResource("6_ryqf4")
+PauseMenu = ExtResource("7_nx8iy")
+OverlayLayer = NodePath("OverlayLayer")
+
+[node name="OverlayLayer" type="CanvasLayer" parent="." unique_id=203108064]
+process_mode = 3
+layer = 100

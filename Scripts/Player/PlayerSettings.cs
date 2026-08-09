@@ -1,6 +1,7 @@
 using Godot;
 using System.Collections.Generic;
 using System.Text.Json;
+using System; 
 
 
 public partial class PlayerSettings : Node
@@ -14,6 +15,7 @@ public partial class PlayerSettings : Node
 	public float MouseSensitivity { get; set; }
 
 	private SettingsFile _settings; 
+	public event Action playerSettingsChanged;
 
 	public override void _Ready()
 	{
@@ -46,6 +48,8 @@ public partial class PlayerSettings : Node
 
 		using var file = FileAccess.Open(playerSettingsFile, FileAccess.ModeFlags.Write);
 		file.StoreString(json);
+
+		playerSettingsChanged?.Invoke(); 
 	}
 
 	public void RestoreDefaults()

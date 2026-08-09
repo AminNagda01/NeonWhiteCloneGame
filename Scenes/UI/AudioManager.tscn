@@ -7,18 +7,23 @@
 [ext_resource type="AudioStream" uid="uid://rj6k1xgm0pfy" path="res://Materials/Audio/MUSIC JINGLE LEVELCOMPLETE GOLD.mp3" id="5_xu21o"]
 
 [node name="AudioManager" type="Node" unique_id=588379797]
+process_mode = 3
 script = ExtResource("1_iyyep")
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="." unique_id=680541844]
 stream = ExtResource("2_snxin")
+bus = &"AllMusicBus"
 parameters/looping = true
 
 [node name="LevelOneMusic" type="AudioStreamPlayer" parent="." unique_id=181663075]
 stream = ExtResource("3_ugv24")
+bus = &"AllMusicBus"
 parameters/looping = true
 
 [node name="EndCardNormalMusic" type="AudioStreamPlayer" parent="." unique_id=1313751336]
 stream = ExtResource("4_63vxy")
+bus = &"AllMusicBus"
 
 [node name="EndCardNewTimeMusic" type="AudioStreamPlayer" parent="." unique_id=1530929802]
 stream = ExtResource("5_xu21o")
+bus = &"AllMusicBus"

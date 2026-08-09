@@ -69,16 +69,25 @@ public partial class Player : CharacterBody3D
 		PlayerCamera.Fov = PlayerSettings.Instance.BaseFov;
 
 		Input.MouseMode = Input.MouseModeEnum.Captured;
+
+		if (PlayerSettings.Instance == null)
+		{
+			GD.PushError("PlayerSettings.Instance is null!");
+		}
+		else
+		{
+			PlayerSettings.Instance.playerSettingsChanged += UpdatePlayerSettings; 
+		}
+	}
+
+	private void UpdatePlayerSettings()
+	{
+		PlayerCamera.Fov = PlayerSettings.Instance.BaseFov;
+		effectiveSens = PlayerSettings.Instance.MouseSensitivity * sensMulti;
 	}
 
 	public override void _UnhandledInput(InputEvent inputEvent)
 	{
-		if (inputEvent.IsActionPressed("pause"))
-		{
-			ToggleMouseCapture();
-			return;
-		}
-
 		if (Input.MouseMode != Input.MouseModeEnum.Captured)
 		{
 			return;
@@ -232,12 +241,5 @@ public partial class Player : CharacterBody3D
 		_cameraPitch = Mathf.Clamp(_cameraPitch, _minPitchRadians, _maxPitchRadians);
 
 		CameraPivot.Rotation = new Vector3(_cameraPitch, 0.0f, 0.0f);
-	}
-
-	private void ToggleMouseCapture()
-	{
-		Input.MouseMode = Input.MouseMode == Input.MouseModeEnum.Captured
-			? Input.MouseModeEnum.Visible
-			: Input.MouseModeEnum.Captured;
 	}
 }

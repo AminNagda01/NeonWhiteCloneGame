@@ -14,12 +14,12 @@ public partial class MainMenu : Control
 
 	public void OnLevelSelectButtonPressed()
 	{
-		SceneManager.Instance.ChangeScene(SceneManager.Instance.LevelSelect);
+		SceneManager.Instance.OpenLevelSelect(); 
 	}
 
 	public void OnSettingsButtonPressed()
 	{
-		SceneManager.Instance.ChangeScene(SceneManager.Instance.Settings);
+		SceneManager.Instance.OpenSettings(); 
 	}
 
 	public void OnQuitButtonPressed()

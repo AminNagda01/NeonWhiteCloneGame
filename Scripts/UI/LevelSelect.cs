@@ -9,7 +9,7 @@ public partial class LevelSelect : Control
 
 	public void OnBackButtonPressed()
 	{
-		SceneManager.Instance.ChangeScene(SceneManager.Instance.MainMenu);
+		SceneManager.Instance.OnBack();
 	}
 
 	public void RestoreDefaults()
