@@ -21,5 +21,8 @@ Thumbs.db
 .idea/
 *.swp
 
-# Music files 
+# Music files (not mine so im not gonna upload it publicly)
 Materials/Audio/
+
+#My level data 
+Data/Live

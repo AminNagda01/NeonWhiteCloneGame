@@ -15,6 +15,10 @@ run/main_scene="uid://dt3311gpbjx73"
 config/features=PackedStringArray("4.7", "C#", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://dtmduyuyrox50"
+
 [autoload]
 
 PlayerGameplayDataHandler="*uid://d31vscjfx6eev"

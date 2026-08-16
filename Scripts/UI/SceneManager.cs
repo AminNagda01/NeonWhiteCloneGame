@@ -260,6 +260,7 @@ public partial class SceneManager : Node
 
 		if (scene == LevelOne)
 		{
+			_currentLevelScene = scene;
 			AudioManager.Instance.PlayLevelOneMusic(); 
 			_state = GameFlowState.Playing; 
 		}
@@ -274,11 +275,10 @@ public partial class SceneManager : Node
 			{
 				AudioManager.Instance.PlayEndSceneMusicNormal();
 			}
-			 
+			_state = GameFlowState.EndScreen; 
 		}
 
-		Error error = GetTree().ChangeSceneToPacked(scene);
-		_currentLevelScene = scene; 
+		Error error = GetTree().ChangeSceneToPacked(scene); 
 
 		if (error != Error.Ok)
 		{
